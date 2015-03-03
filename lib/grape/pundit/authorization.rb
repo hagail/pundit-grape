@@ -1,6 +1,3 @@
-require "pundit/grape/version"
-
-
 module Grape
   module Pundit
     module Authorization
@@ -19,21 +16,5 @@ module Grape
         end
       end
     end
-
-    module Exceptions
-      class AuthorizationError < Grape::Exceptions::Base
-        def initialize
-          super message: "API Authorization Failed.", status: 401
-        end
-      end
-    end
-  end
-
-  class API
-    include Grape::Pundit::Authorization
-  end
-
-  class Endpoint
-    include Pundit
   end
 end
