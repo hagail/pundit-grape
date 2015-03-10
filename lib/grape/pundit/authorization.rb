@@ -6,10 +6,11 @@ module Grape
       module ClassMethods
         def authorize(&block)
           authorization = ->(_) {
-            authorized = instance_eval(&block)
-            unless authorized
-              fail Grape::Pundit::Exceptions::AuthorizationError
-            end
+            instance_eval(&block)
+            # authorized = instance_eval(&block)
+            # unless authorized
+            #   fail Grape::Pundit::Exceptions::AuthorizationError
+            # end
           }
 
           namespace_stackable(:after_validations, authorization)
