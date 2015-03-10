@@ -1,0 +1,5 @@
+require_relative "grape/pundit/version"
+require_relative "grape/pundit/exceptions/authorization_error"
+require_relative "grape/pundit/authorization"
+require_relative "grape/api"
+require_relative "grape/endpoint"
